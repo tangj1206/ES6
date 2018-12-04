@@ -148,7 +148,7 @@ let y = 2;
 console.log(x, y); */
 
 //从函数返回多个值
-function example() {
+/* function example() {
 	return [1, 2, 3]
 }
 let [a, b, c] = example();
@@ -161,5 +161,26 @@ function example1() {
 	}
 }
 let { foo, bar } = example1();
-console.log(foo, bar)
+console.log(foo, bar) */
 
+//函数参数的定义
+
+//提取JSON数据
+/* let jsonData = {
+	id:42,
+	status:"ok",
+	data:[867, 5306]
+};
+let {id, status, data} = jsonData;
+console.log(id,status,data); */
+
+//函数 参数的默认值
+
+//遍历Map解构
+/* const map = new Map();
+map.set('first', 'hello');
+map.set('second', 'world');
+
+for (let [key, value] of map) {
+	console.log(`key:${key} value:${value}`);
+} */
