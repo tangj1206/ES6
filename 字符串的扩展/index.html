@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+
+<body>
+	<div id="list">
+
+	</div>
+	<script type="text/javascript">
+		let parent = document.getElementById('list');
+		let str = `
+		<ul>
+			<li>first</li>
+			<li>second</li>
+		</ul>
+		`;
+		parent.innerHTML= str.trim();
+	</script>
+</body>
+
+</html>

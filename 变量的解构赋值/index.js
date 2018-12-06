@@ -182,5 +182,7 @@ map.set('first', 'hello');
 map.set('second', 'world');
 
 for (let [key, value] of map) {
-	console.log(`key:${key} value:${value}`);
+	console.log(key, value);
 } */
+
+
