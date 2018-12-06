@@ -77,35 +77,40 @@ let template = `
 		<% } %>
 	</ul>
 `;
-
-/* echo('<ul>');
-for (let i = 0; i < data.supplies.length; i++) {
-	echo('<li>');
-	echo(data.supplies[i]);
-	echo('</li>');
+//目标 语句
+/* 
+echo('<ul>');
+for(let i=0; i < data.supplies.length; i++) {
+  echo('<li>');
+  echo(data.supplies[i]);
+  echo('</li>');
 };
-echo('</ul'); */
+echo('</ul>'); 
+*/
+function compile(template) {
+	var evalExpr = /<%=(.+?)%>/g;
+	var expr = /<%([\s\S]+?)%>/g;
 
-let evalExpr = /<%=(.+?)%>/g;
-let expr = /<%([\s\S]+?)%>/g;
+	template = template
+		.replace(evalExpr, '`); \n echo( $1 ); \n echo(`')
+		.replace(expr, '`); \n $1 \n echo(`');
 
-template = template
-	.replace(evalExpr, '`);\n echo( $1 ); \n echo`')
-	.replace(expr, '`); \n $1 \n echo(`');
-template = 'echo(`' + template + '`)';
-console.log(template);
+	template = 'echo(`' + template + '`);';
 
-let script = 
-`(function parse(data){
-	let output = '';
+	let script =
+		`(function parse(data) {
+		let output = "";
 
-	function echo(html) {
-		output += html;
-	}
+		function echo(html) { 
+			output += html;
+		 }
 
-	${ template }
+		 ${ template}
 
-	return output;
-})`;
-
-return script;
+		 return output;
+	})`;
+	return script;
+}
+let parse = eval(compile(template));
+let html = parse({ supplies: ["broom", "mop", "cleaner"] });
+console.log(html);
