@@ -162,3 +162,26 @@ console.log(msg); */
 	output += literals[index]
 	return output;
 } */
+
+//过滤html字符串 
+let sender = '<script>alert("abc")</script>'; // 恶意代码
+let message =
+	SaferHTML`<p>${sender} has sent you a message.<p>`;
+
+function SaferHTML(templateData) {
+	//第一个字符串保留
+	let s = templateData[0];
+	//循环替换变量里面的转义字符
+	for (let i = 1; i < arguments.length; i++) {
+		let arg = arguments[i];
+
+		// 将特殊字符转义
+		s += arg.replace(/&/g, "&amp;")
+			.replace(/</g, '&lt;')
+			.replace(/>/g, 'gt;');
+
+		// 因为参数是间隔的所以 每次娶一个变量之后 应该拼接上一个字符串参数
+		s += templateData[i]
+	}
+	return s;
+}
