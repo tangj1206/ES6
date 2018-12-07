@@ -70,13 +70,13 @@ const data = [
 console.log(tmpl(data)); */
 
 // 实例：模板编译
-let template = `
+/* let template = `
 	<ul>
 		<% for(let i=0; i< data.supplies.length ;i++) {%>
 			<li><%= data.supplies[i] %>  </li>
 		<% } %>
 	</ul>
-`;
+`; */
 //目标 语句
 /* 
 echo('<ul>');
@@ -87,7 +87,7 @@ for(let i=0; i < data.supplies.length; i++) {
 };
 echo('</ul>'); 
 */
-function compile(template) {
+/* function compile(template) {
 	var evalExpr = /<%=(.+?)%>/g;
 	var expr = /<%([\s\S]+?)%>/g;
 
@@ -113,4 +113,52 @@ function compile(template) {
 }
 let parse = eval(compile(template));
 let html = parse({ supplies: ["broom", "mop", "cleaner"] });
-console.log(html);
+ */
+
+/* let a = 5;
+let b = 10;
+
+function tag(s, v1, v2, v3) {
+	console.log(s[0]);
+	console.log(s[1]);
+	console.log(s[2]);
+	console.log(s[3]);
+	console.log(v1);
+	console.log(v2);
+	console.log(v3);
+
+	return 'ok';
+}
+
+tag`${a - b} Hello ${a + b} world ${a * b}`;
+ */
+
+/* let total = 30;
+let msg = passthru`The total is ${total} (${total * 1.05} with tax)`;
+
+function passthru(literals) {
+	console.log(literals);
+	let result = '';
+	let i = 0;
+
+	while (i < literals.length) {
+		result += literals[i++];
+		if (i < arguments.length) {
+			result += arguments[i];
+		}
+	}
+
+	return result;
+};
+console.log(msg); */
+
+/* function passthru(literals, ...values) {
+	let output = "";
+	let index;
+	for (index = 0; index < values.length; index++) {
+		output += literals[index] + values[index];
+	}
+
+	output += literals[index]
+	return output;
+} */
