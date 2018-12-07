@@ -164,7 +164,7 @@ console.log(msg); */
 } */
 
 //过滤html字符串 
-let sender = '<script>alert("abc")</script>'; // 恶意代码
+/* let sender = '<script>alert("abc")</script>'; // 恶意代码
 let message =
 	SaferHTML`<p>${sender} has sent you a message.<p>`;
 
@@ -184,4 +184,21 @@ function SaferHTML(templateData) {
 		s += templateData[i]
 	}
 	return s;
-}
+} */
+
+// 下面的hashTemplate函数
+// 是一个自定义的模板函数
+/* let libraryHtml = hashTemplate`
+	<ul>
+		#for book in ${myBooks}
+			<li><i>#{book.title}</i> by #{book.author}</li>
+		#end
+	</ul>
+`;
+ */
+
+ /* tag`First line\nSecond line`
+
+ function tag(strings) {
+	 console.log(strings);
+ } */
