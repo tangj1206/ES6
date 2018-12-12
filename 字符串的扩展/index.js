@@ -197,8 +197,24 @@ function SaferHTML(templateData) {
 `;
  */
 
- /* tag`First line\nSecond line`
+/* tag`First line\nSecond line`
 
- function tag(strings) {
-	 console.log(strings);
- } */
+function tag(strings) {
+	console.log(strings);
+} */
+
+/* let a = String.raw`Hi\n${2+3}!`;
+console.log(a); */
+
+/* let a = String.raw({ raw: 'test' }, 0, 1, 2);
+console.log(a); */
+
+/* String.raw = function(strings, ...values){
+let output = '';
+let index;
+for (let i = 0; i < values.length; i++) {
+	output +=strings.raw[i] + values[i];
+}
+output += strings.raw[i];
+} */
+
